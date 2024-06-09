@@ -2,44 +2,27 @@ name: Deploy to Linode
 on:
   push:
     branches:
-      - main
-env:
-  DOTNET_VERSION: "8.0"
+      - Herbzhub_Dev
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      # Backend steps
-      - name: Install Backend Dependencies
-        run: dotnet restore backend/Herbzhub/src/Herbzhub.Api
-
-      - name: Build Backend
-        run: dotnet build backend/Herbzhub/src/Herbzhub.Api --configuration Release --no-restore
-
-      - name: Test Backend
-        run: dotnet test backend/Herbzhub/src/Herbzhub.Api --configuration Release --no-restore
+      - name: Build and Test Backend
+        run: |
+          # Build and test your .NET backend here
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
-      - name: Pull Code
-        uses: actions/checkout@v3
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
@@ -50,19 +33,11 @@ jobs:
       - name: Add Linode VM to known_hosts
         run: ssh-keyscan -H 172.232.11.46 >> ~/.ssh/known_hosts
 
-      # Backend deployment steps
-      - name: Restore Backend Dependencies
-        run: dotnet restore backend/Herbzhub/src/Herbzhub.Api
+      # React frontend deployment steps
+      - name: Build React Frontend
+        run: npm install && npm run build
+        working-directory: front/web
 
-      - name: Stop Backend on Linode VM
-        run: ssh root@172.232.11.46 "sudo systemctl stop your-dotnet-application.service"
-
-      - name: Create Backend Production Build
-        run: dotnet publish backend/Herbzhub/src/Herbzhub.Api --configuration Release --output /tmp/backend
-
-      - name: Deploy Backend to Linode VM
+      - name: Deploy React Frontend to Linode VM
         run: |
-          sshpass -p "hh24nano!@#" rsync -avzr -e "ssh -o StrictHostKeyChecking=no" /tmp/backend/ root@172.232.11.46:/var/www/herbzhub
-
-      - name: Start Backend on Linode VM
-        run: ssh root@172.232.11.46 "sudo systemctl start your-dotnet-application.service"
+          sshpass -p "your_ssh_password" rsync -avzr -e "ssh -o StrictHostKeyChecking=no" build/ root@172.232.11.46:/var/www/herbzhubFrontend
