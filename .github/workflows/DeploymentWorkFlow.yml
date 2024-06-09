@@ -54,9 +54,15 @@ jobs:
       - name: Restore Backend Dependencies
         run: dotnet restore backend/Herbzhub/src/Herbzhub.Api
 
+      - name: Stop Backend on Linode VM
+        run: ssh root@172.232.11.46 "sudo systemctl stop your-dotnet-application.service"
+
       - name: Create Backend Production Build
         run: dotnet publish backend/Herbzhub/src/Herbzhub.Api --configuration Release --output /tmp/backend
 
       - name: Deploy Backend to Linode VM
         run: |
           sshpass -p "hh24nano!@#" rsync -avzr -e "ssh -o StrictHostKeyChecking=no" /tmp/backend/ root@172.232.11.46:/var/www/herbzhub
+
+      - name: Start Backend on Linode VM
+        run: ssh root@172.232.11.46 "sudo systemctl start your-dotnet-application.service"
