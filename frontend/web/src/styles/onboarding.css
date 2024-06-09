@@ -1,0 +1,373 @@
+/* src/styles/Onboarding.css */
+
+.onboarding-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 100px 20px 20px; /* Added top padding to provide space */
+  margin: 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 75px; /* Ensure the header has a consistent height */
+}
+
+.button {
+  width: 385px;
+  border-radius: 7px;
+  height: 42px;
+  background-color: #87ceeb;
+  border: none;
+  color: white;
+}
+.click-button {
+  width: 385px;
+  border-radius: 7px;
+  height: 42px;
+  color: #87ceeb;
+  border: none;
+  background-color: white;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18.15px;
+  text-align: center;
+}
+.click-button a {
+  text-decoration: none;
+  color: #87ceeb;
+}
+.button:hover {
+  background-color: rgb(39, 145, 232);
+  cursor: pointer;
+}
+.click-button:hover {
+  color: #87ceeb;
+  border: none;
+}
+.onboarding-complete {
+  width: 267px;
+  height: 29px;
+  top: 572px;
+  left: 586px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.05px;
+  text-align: center;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.onboarding-messsage {
+  width: 376px;
+  height: 36px;
+  top: 626px;
+  left: 529px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18.15px;
+  text-align: center;
+  color: white;
+}
+
+.sign-in-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 15px;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18.15px;
+  text-align: center;
+  color: #000000;
+}
+
+.sign-in-link a {
+  color: #87ceeb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sign-in-space {
+  margin-left: 5px; /* Adjust the value as needed */
+}
+
+.logo-top {
+  margin-top: 25px; /* Adjust this value to position it properly */
+}
+
+.logo-top img {
+  width: 125px; /* Adjust based on your logo's dimensions */
+}
+.form-title {
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.05px;
+  text-align: center;
+  color: #030303;
+}
+.form-subtitle {
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18.15px;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.onboarding-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Changed to flex-start for top alignment */
+  flex-grow: 1;
+  text-align: center;
+  width: 100%; /* Ensure the form takes full width */
+}
+
+.onboarding-form h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.onboarding-form h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.onboarding-form h3,
+.onboarding-form h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.onboarding-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.onboarding-form label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* .onboarding-form select,
+.onboarding-form input {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+} */
+
+.select-field {
+  border: none;
+  width: 376px;
+  height: 42px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  background: #f6f6f6;
+  padding-left: 10px;
+  -webkit-appearance: none; /* Removes native dropdown styling for WebKit browsers */
+  -moz-appearance: none; /* Removes native dropdown styling for Firefox */
+  appearance: none;
+  cursor: pointer;
+}
+.select-field option[value=''][disabled] {
+  color: grey;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18.15px;
+  text-align: left;
+}
+.org-info {
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18.15px;
+  text-align: center;
+  color: #000000;
+  padding: 0;
+  margin: 0;
+}
+.input-pair {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  width: 100%;
+  /* max-width: 540px;  */
+}
+
+.input-pair > * {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.validation-error {
+  color: red;
+}
+
+/* .onboarding-form button {
+  width: 260px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+.onboarding-form button:hover {
+  background-color: #0056b3;
+}
+
+.status-bubble {
+  width: 200px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+}
+
+.status-bubble.id-verification-in-progress {
+  background-color: grey;
+}
+
+.status-bubble.id-verified {
+  background-color: green;
+}
+
+.status-bubble.id-not-verified {
+  background-color: red;
+}
+
+.license-check {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.license-status {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+  .onboarding-page {
+    padding: 100px 20px 20px; /* Adjusted top padding for mobile */
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    top: auto;
+    position: static;
+  }
+
+  /* .logo-text img,
+  .sign-in-link {
+    margin: 10px 0;
+  } */
+
+  .onboarding-form h1 {
+    font-size: 20px;
+  }
+
+  .onboarding-form select,
+  .onboarding-form input,
+  .onboarding-form button {
+    width: 100%;
+  }
+
+  .input-pair {
+    flex-direction: column;
+  }
+
+  .input-pair > * {
+    margin: 10px 0;
+  }
+}
+
+/* Completion Steps */
+
+/* src/styles/CompletionStep.css */
+
+.completion-step {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.completion-logo {
+  width: 100px; /* Adjust as needed */
+  margin-bottom: 20px;
+}
+
+.completion-title {
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 700;
+  color: #030303;
+}
+
+.completion-subtitle {
+  font-family: 'Inter';
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.completion-message {
+  font-family: 'Inter';
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.completion-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #87ceeb;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.completion-button:hover {
+  background-color: #5ab4d4;
+}

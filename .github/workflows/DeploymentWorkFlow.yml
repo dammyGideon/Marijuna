@@ -1,0 +1,63 @@
+name: Deploy to Linode
+on:
+  push:
+    branches:
+      - HerbzHub_Dev
+env:
+  DOTNET_VERSION: "8.0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      # Backend steps
+      - name: Install Backend Dependencies
+        run: dotnet restore backend/Herbzhub/src/Herbzhub.Api
+
+      - name: Build Backend
+        run: dotnet build backend/Herbzhub/src/Herbzhub.Api --configuration Release --no-restore
+
+      - name: Test Backend
+        run: dotnet test backend/Herbzhub/src/Herbzhub.Api --configuration Release --no-restore
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull Code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Create .ssh Directory
+        run: mkdir -p ~/.ssh
+
+      - name: Add Linode VM to known_hosts
+        run: ssh-keyscan -H 172.232.11.46 >> ~/.ssh/known_hosts
+
+      # Backend deployment steps
+      - name: Restore Backend Dependencies
+        run: dotnet restore backend/Herbzhub/src/Herbzhub.Api
+
+      - name: Create Backend Production Build
+        run: dotnet publish backend/Herbzhub/src/Herbzhub.Api --configuration Release --output /tmp/backend
+
+
+      - name: Deploy Backend to Linode VM
+        run: |
+          sshpass -p "hh24nano!@#" rsync -avzr -e "ssh -o StrictHostKeyChecking=no" /tmp/backend/ root@172.232.11.46:/var/www/herbzhub

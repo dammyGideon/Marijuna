@@ -1,0 +1,10 @@
+.dashboard {
+    display: flex;
+}
+
+.main-content {
+    margin-left: 260px; /* Adjusted to match sidebar width */
+    width: calc(100% - 260px); /* Ensure it fits within the remaining space */
+    height: 100vh;
+    position: relative;
+}

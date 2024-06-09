@@ -1,0 +1,13 @@
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\bin\Release\net8.0\Herbzhub.Models.deps.json
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\bin\Release\net8.0\Herbzhub.Models.dll
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\bin\Release\net8.0\Herbzhub.Models.pdb
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.AssemblyInfo.cs
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.sourcelink.json
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.dll
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\refint\Herbzhub.Models.dll
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\Herbzhub.Models.pdb
+C:\Users\HP\Desktop\HerbzHub\backend\Herbzhub\src\Herbzhub.Models\obj\Release\net8.0\ref\Herbzhub.Models.dll
