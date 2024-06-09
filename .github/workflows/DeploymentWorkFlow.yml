@@ -2,7 +2,7 @@ name: Deploy to Linode
 on:
   push:
     branches:
-      - main
+      - Herbzhub_Dev
 
 jobs:
   build:
@@ -35,9 +35,10 @@ jobs:
 
       # React frontend deployment steps
       - name: Build React Frontend
-        run: npm install && npm run build
-        working-directory: front/web
+        run: |
+          cd front/web
+          npm install && npm run build
 
       - name: Deploy React Frontend to Linode VM
         run: |
-          sshpass -p "your_ssh_password" rsync -avzr -e "ssh -o StrictHostKeyChecking=no" build/ root@172.232.11.46:/var/www/herbzhubFrontend
+          sshpass -p "your_ssh_password" rsync -avzr -e "ssh -o StrictHostKeyChecking=no" front/web/build/ root@172.232.11.46:/var/www/herbzhubFrontend
