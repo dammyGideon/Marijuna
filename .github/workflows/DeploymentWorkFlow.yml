@@ -36,7 +36,7 @@ jobs:
       # React frontend deployment steps
       - name: Build React Frontend
         run: |
-          cd front/web
+          cd frontend/web
           npm install && npm run build
 
       - name: Deploy React Frontend to Linode VM
