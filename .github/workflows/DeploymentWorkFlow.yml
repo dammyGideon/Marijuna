@@ -2,7 +2,7 @@ name: Deploy to Linode
 on:
   push:
     branches:
-      - Herbzhub_Dev
+      - main
 
 jobs:
   build:
